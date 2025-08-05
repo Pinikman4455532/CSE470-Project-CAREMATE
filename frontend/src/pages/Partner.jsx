@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../styles/Partner.css";
 
 const API_URL = "http://localhost:5000/api/partner";
 
@@ -130,7 +131,7 @@ function Partner() {
   };
 
   return (
-    <div className="partner-container">
+    <div className="partner-form-container">
       <h2>Partner Profile</h2>
       <form onSubmit={handleSubmit}>
         <input name="name" placeholder="Partner Name" value={formData.name} onChange={handleChange} />
@@ -178,7 +179,7 @@ function RenderArray({ label, values = [], field, onRemove }) {
           values.map((item, i) => (
             <li key={i}>
               {item}{" "}
-              <button onClick={() => onRemove(field, item)}></button>
+              <button onClick={() => onRemove(field, item)}>-</button>
             </li>
           ))
         )}

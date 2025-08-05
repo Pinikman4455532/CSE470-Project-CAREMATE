@@ -1,0 +1,125 @@
+/* Import modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+  height: 100%;
+}
+
+/* Background image and full-screen layout */
+.auth-container {
+  background: url('public/background.png') no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;      
+  justify-content: center;      
+  padding: 40px 20px; 
+  background-position: 40% center;         
+}
+
+.auth-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  margin-left: 20px;
+  max-width: 400px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+/* Heading */
+h2 {
+  text-align: center;
+  color: #140000;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Form itself */
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+/* Inputs */
+.auth-form input {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ED2939;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  outline: none;
+}
+
+.auth-toggle-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 1px solid #ED2939;
+  color: black;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-toggle-btn:hover {
+  background-color: #ED2939;
+  color: white;
+}
+
+/* Button */
+.auth-form button {
+  background-color: #ED2939;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: #c71e2a;
+}
+
+/* Toggle Link */
+.auth-toggle {
+  color: black; /* temporarily make it visible */
+}
+
+/* Message */
+.auth-message {
+  text-align: center;
+  margin-top: 10px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .auth-box {
+    padding: 20px;
+  }
+
+  .auth-form input,
+  .auth-form button {
+    font-size: 14px;
+  }
+}

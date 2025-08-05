@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import "../styles/ImportantDates.css";
+
 import {
   fetchImportantDates,
   addImportantDate,
@@ -59,7 +61,7 @@ function ImportantDates() {
     );
 
     return matches.length ? (
-      <div style={{ fontSize: "10px", color: "red" }}>
+      <div>
         {matches.map((m) => (
           <div
             key={m._id}
@@ -78,7 +80,7 @@ function ImportantDates() {
                 handleDelete(m._id);
               }}
             >
-              x
+              -
             </button>
           </div>
         ))}
@@ -87,22 +89,23 @@ function ImportantDates() {
   };
 
   return (
-    <div>
-      <h2>Important Dates</h2>
-      <Calendar onClickDay={onDateClick} value={date} tileContent={tileContent} />
+    
+      <div className="important-dates-container">
+        <h2>Important Dates</h2>
+        <Calendar onClickDay={onDateClick} value={date} tileContent={tileContent} />
 
-      {showPopup && (
-        <div>
-          <input
-            type="text"
-            placeholder="Event Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <button onClick={handleSave}>Save</button>
-          <button onClick={() => setShowPopup(false)}>Cancel</button>
-        </div>
-      )}
+        {showPopup && (
+          <div className="important-dates-popup">
+            <input
+              type="text"
+              placeholder="Event Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <button onClick={handleSave}>Save</button>
+            <button onClick={() => setShowPopup(false)}>Cancel</button>
+          </div>
+        )}
     </div>
   );
 }

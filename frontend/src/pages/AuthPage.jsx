@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // ⬅️ Import navigate for redirection
+import "../styles/AuthPage.css";
 
 const API_URL = "http://localhost:5000/api/auth";
 
@@ -63,9 +64,11 @@ function AuthPage() {
     }
   };
 
-  return (
-    <div className="auth-container">
+return (
+  <div className="auth-container">
+    <div className="auth-box"> {/* This wraps the form, toggle, and message */}
       <h2>{isLogin ? "Login" : "Sign Up"}</h2>
+
       <form onSubmit={handleSubmit} className="auth-form">
         {!isLogin && (
           <>
@@ -112,20 +115,24 @@ function AuthPage() {
         </button>
       </form>
 
-      <p
+      {/* Move this INSIDE the auth-box */}
+      <button
+        type="button"
         onClick={() => {
           setIsLogin(!isLogin);
           setMessage("");
         }}
-        className="auth-toggle"
-        style={{ cursor: "pointer", color: "#0077cc" }}
+        className="auth-toggle-btn"
       >
         {isLogin ? "Create new account" : "Have an account? Login"}
-      </p>
+      </button>
+
 
       {message && <p className="auth-message">{message}</p>}
     </div>
-  );
+  </div>
+);
+
 }
 
 export default AuthPage;

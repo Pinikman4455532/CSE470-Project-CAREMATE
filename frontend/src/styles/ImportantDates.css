@@ -1,0 +1,132 @@
+/* Container to center everything */
+.important-dates-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* Make calendar bigger and theme colors */
+.react-calendar {
+  width: 550px !important;  /* bigger size */
+  max-width: 100%;
+  background: rgba(192, 6, 6, 0.15);  /* light semi-transparent red */
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(192, 6, 6, 0.3);
+  font-family: 'Poppins', sans-serif;
+  color: #800000; /* dark red text */
+  border: none;
+}
+
+/* Calendar navigation styling */
+.react-calendar__navigation {
+  background-color: #c00606;
+  border-radius: 12px 12px 0 0;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Navigation buttons (prev/next) */
+.react-calendar__navigation button {
+  color: white;
+  min-width: 50px;
+}
+
+/* Weekday names */
+.react-calendar__month-view__weekdays {
+  font-weight: 700;
+  color: #0a0a0a;
+  font-size: 16px;
+}
+
+/* Days cells */
+.react-calendar__tile {
+  font-size: 18px;
+  padding: 15px 0;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+/* Highlight today */
+.react-calendar__tile--now {
+  background: #800000;
+  color: white;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+/* Selected date */
+.react-calendar__tile--active {
+  background: #b66767;
+  color: white;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+/* Hover effect on dates */
+.react-calendar__tile:hover {
+  background-color: rgba(192, 6, 6, 0.4);
+  color: white;
+  font-weight: 600;
+}
+
+/* Tile content with events */
+.react-calendar__tile div {
+  font-size: 12px !important;
+  color: #000000;
+  margin-top: 4px;
+}
+
+/* Popup input + buttons container */
+.important-dates-popup {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Input styling (matching previous style) */
+.important-dates-popup input[type="text"] {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #c00606;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  color: #800000;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.important-dates-popup input[type="text"]:focus {
+  border-color: #800000;
+}
+
+/* Buttons styling */
+.important-dates-popup button {
+  background-color: #bd4545;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 25px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.important-dates-popup button:hover {
+  background-color: #800000;
+}
+
+

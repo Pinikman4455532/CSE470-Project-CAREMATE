@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "../styles/Dashboard.css";
 
 const API_AUTH = "http://localhost:5000/api/auth";
 const API_PARTNER = "http://localhost:5000/api/partner";
@@ -62,17 +63,19 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <h2>Welcome, {user.name}!</h2>
-      <p><strong>Email:</strong> {user.email}</p>
-      <p><strong>Age:</strong> {user.age || "Not set"}</p>
-      <p><strong>Phone:</strong> {user.phone || "Not set"}</p>
+      <div className="user-info">
+        <h2>Welcome, {user.name}!</h2>
+        <p><strong>Email:</strong> {user.email}</p>
+        <p><strong>Age:</strong> {user.age || "Not set"}</p>
+        <p><strong>Phone:</strong> {user.phone || "Not set"}</p>
+        <p><strong>Partner Name:</strong> {partnerName || "No partner info yet"}</p>
+      </div>
 
-      {/* Show partner name */}
-      <p><strong>Partner Name:</strong> {partnerName || "No partner info yet"}</p>
+      
 
-      {/* Notification section */}
+
       {notifications.length > 0 && (
-        <div style={{ marginTop: "20px" }}>
+        <div className="notification-box">
           <h4>🔔 Upcoming Events:</h4>
           <ul>
             {notifications.map((note, index) => (
@@ -82,15 +85,17 @@ function Dashboard() {
         </div>
       )}
 
-      <Link to="/partner">
-        <button>Partner</button>
-      </Link>
-
-      <Link to="/important-dates" style={{ marginLeft: "10px" }}>
-        <button>Important Dates</button>
-      </Link>
+      <div className="buttons-container">
+        <Link to="/partner">
+          <button>Partner</button>
+        </Link>
+        <Link to="/important-dates">
+          <button>Important Dates</button>
+        </Link>
+      </div>
     </div>
   );
+
 }
 
 export default Dashboard;
