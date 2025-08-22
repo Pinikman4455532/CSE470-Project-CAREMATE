@@ -53,10 +53,13 @@ function AuthPage() {
       } else {
         setMessage(data.message || "Success!");
         if (isLogin) {
+          // 🔹 Save token & user info after login
           localStorage.setItem("user", JSON.stringify(data.user));
-          navigate("/dashboard"); // ⬅️ Redirect after successful login
+          localStorage.setItem("token", data.token);
+
+          navigate("/dashboard"); // redirect after login
         } else {
-          setIsLogin(true);
+          setIsLogin(true); // switch to login after successful signup
         }
       }
     } catch (error) {
@@ -64,75 +67,72 @@ function AuthPage() {
     }
   };
 
-return (
-  <div className="auth-container">
-    <div className="auth-box"> {/* This wraps the form, toggle, and message */}
-      <h2>{isLogin ? "Login" : "Sign Up"}</h2>
+  return (
+    <div className="auth-container">
+      <div className="auth-box">
+        <h2>{isLogin ? "Login" : "Sign Up"}</h2>
 
-      <form onSubmit={handleSubmit} className="auth-form">
-        {!isLogin && (
-          <>
-            <input
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              name="age"
-              type="number"
-              placeholder="Age"
-              value={formData.age}
-              onChange={handleChange}
-            />
-            <input
-              name="phone"
-              placeholder="Phone"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-          </>
-        )}
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">
-          {isLogin ? "Login" : "Sign Up"}
+        <form onSubmit={handleSubmit} className="auth-form">
+          {!isLogin && (
+            <>
+              <input
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                name="age"
+                type="number"
+                placeholder="Age"
+                value={formData.age}
+                onChange={handleChange}
+              />
+              <input
+                name="phone"
+                placeholder="Phone"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+            </>
+          )}
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">
+            {isLogin ? "Login" : "Sign Up"}
+          </button>
+        </form>
+
+        <button
+          type="button"
+          onClick={() => {
+            setIsLogin(!isLogin);
+            setMessage("");
+          }}
+          className="auth-toggle-btn"
+        >
+          {isLogin ? "Create new account" : "Have an account? Login"}
         </button>
-      </form>
 
-      {/* Move this INSIDE the auth-box */}
-      <button
-        type="button"
-        onClick={() => {
-          setIsLogin(!isLogin);
-          setMessage("");
-        }}
-        className="auth-toggle-btn"
-      >
-        {isLogin ? "Create new account" : "Have an account? Login"}
-      </button>
-
-
-      {message && <p className="auth-message">{message}</p>}
+        {message && <p className="auth-message">{message}</p>}
+      </div>
     </div>
-  </div>
-);
-
+  );
 }
 
 export default AuthPage;

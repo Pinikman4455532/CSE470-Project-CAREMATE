@@ -24,12 +24,17 @@ export const loginUser = async (data) => {
     });
 
     const result = await res.json();
+
     if (res.ok) {
-      localStorage.setItem("userEmail", result.user.email);
+      // ✅ Store both the token and user info
+      localStorage.setItem("token", result.token); // <-- store JWT token
+      localStorage.setItem("user", JSON.stringify(result.user));
+
       alert("Login successful");
-      // redirect to dashboard if needed
+      // redirect to dashboard
+      window.location.href = "/dashboard"; // or use navigate if using react-router
     } else {
-      alert(result.message);
+      alert(result.message || "Login failed");
     }
   } catch (err) {
     console.error("Login error:", err);

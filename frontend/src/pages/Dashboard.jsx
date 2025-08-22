@@ -23,40 +23,31 @@ function Dashboard() {
 
     // Fetch user profile
     fetch(`${API_AUTH}/profile/${email}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.user) {
-          setUser(data.user);
-        } else {
-          navigate("/");
-        }
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.user) setUser(data.user);
+        else navigate("/");
       })
       .catch(() => navigate("/"));
 
     // Fetch partner info
     fetch(`${API_PARTNER}/${email}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.partner && data.partner.name) {
-          setPartnerName(data.partner.name);
-        } else {
-          setPartnerName(""); // no partner yet
-        }
+      .then((res) => res.json())
+      .then((data) => {
+        setPartnerName(data.partner?.name || "");
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Error fetching partner:", err);
         setPartnerName("");
       });
 
     // Fetch upcoming notifications
     fetch(`${API_DATES}/notifications/${email}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.notifications) {
-          setNotifications(data.notifications);
-        }
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.notifications) setNotifications(data.notifications);
       })
-      .catch(err => console.error("Error fetching notifications:", err));
+      .catch((err) => console.error("Error fetching notifications:", err));
   }, [navigate]);
 
   if (!user) return <div>Loading...</div>;
@@ -70,9 +61,6 @@ function Dashboard() {
         <p><strong>Phone:</strong> {user.phone || "Not set"}</p>
         <p><strong>Partner Name:</strong> {partnerName || "No partner info yet"}</p>
       </div>
-
-      
-
 
       {notifications.length > 0 && (
         <div className="notification-box">
@@ -92,10 +80,22 @@ function Dashboard() {
         <Link to="/important-dates">
           <button>Important Dates</button>
         </Link>
+        <Link to="/memory-vault">
+          <button>Memory Vault</button>
+        </Link>
+        <Link to="/private-notes">
+          <button>Private Notes</button>
+        </Link>
+        <Link to="/gift-ideas">
+          <button>Gift Ideas</button>
+        </Link>
+        {/* ✅ NEW BUTTON FOR DAILY MOOD */}
+        <Link to="/mood">
+          <button>Daily Mood</button>
+        </Link>
       </div>
     </div>
   );
-
 }
 
 export default Dashboard;

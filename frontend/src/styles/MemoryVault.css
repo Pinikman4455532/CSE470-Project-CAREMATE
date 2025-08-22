@@ -1,0 +1,20 @@
+.memories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.memory-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  background: #fff;
+}
+
+.memory-card img {
+  width: 100%;       /* make image fill card width */
+  height: 200px;     /* fixed height */
+  object-fit: cover; /* crop if needed to fit */
+}
