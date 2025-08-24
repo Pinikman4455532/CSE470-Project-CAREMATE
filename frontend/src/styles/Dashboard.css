@@ -1,4 +1,3 @@
-
 .user-info {
   position: absolute;
   top: 20px;
@@ -14,20 +13,16 @@
   width: auto;
   overflow: hidden; /* avoid overflow if needed */
 }
+
 .buttons-container {
-  position: absolute;
-  top: 350px; /* 20 (top) + 180 (height) + 20 (gap) */
-  left: 20px;
-  right: 20px;
-
+  position: relative; /* not absolute anymore */
+  margin: 350px 20px 20px 20px; /* push below .user-info */
   display: flex;
-  gap: 50px;
+  flex-wrap: wrap; /* allow wrapping */
+  gap: 58px;
   justify-content: flex-start;
-
-  z-index: 9; /* below user-info if needed */
 }
 
-/* Keep the text aligned top-left (default) */
 .user-info h2,
 .user-info p {
   margin: 6px 0;
@@ -40,24 +35,25 @@
   color: #000000;
 }
 
-
 .user-info p {
   margin: 6px 0;
   font-size: 25px;
   color: #000000;
 }
 
-
-
 .buttons-container button {
   background-color: #be4545;
   color: white;
   border: none;
-  width: 300px;        /* fixed square width */
-  height: 300px;       /* fixed square height */
+
+  flex: 1 1 auto;      /* fill row width first */
+  min-width: 250px;    /* don’t shrink below this */
+  max-width: 300px;    /* don’t grow above this */
+  aspect-ratio: 1/1;   /* keep square */
+
   font-size: 18px;
   font-weight: 700;
-  border-radius: 12px; /* slightly rounded corners */
+  border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 12px rgba(65, 16, 16, 0.5);
@@ -65,7 +61,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0;          /* remove padding so width/height controls size */
+  padding: 0;
 }
 
 .buttons-container button:hover {
@@ -73,8 +69,6 @@
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(128, 0, 0, 0.7);
 }
-
-
 
 .notification-box {
   position: absolute;
@@ -91,7 +85,6 @@
   z-index: 5;
 }
 
-
 .notification-box h4 {
   margin-bottom: 10px;
   font-size: 18px;
@@ -107,4 +100,25 @@
   margin-bottom: 6px;
   font-size: 20px;
   color: #000000;
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 1100px) {
+  .user-info {
+    position: relative;
+    right: auto;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .notification-box {
+    position: relative;
+    left: auto;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .buttons-container {
+    margin: 20px;
+  }
 }

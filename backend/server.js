@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 // Enable CORS for Vite frontend
 app.use(cors({
-  origin: "http://localhost:5173", // your frontend URL
+  origin: "http://localhost:5173",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
@@ -23,7 +23,10 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("✅ MongoDB connected"))
+  .then(() => {
+    console.log("✅ MongoDB connected");
+    console.log("DB Name:", mongoose.connection.db.databaseName); // Debug DB
+  })
   .catch((err) => console.error("❌ DB connection failed:", err));
 
 // ================= ROUTES =================
@@ -52,7 +55,7 @@ app.use("/api/private-notes", privateNoteRoutes);
 const giftIdeaRoutes = require("./routes/giftIdeaRoutes");
 app.use("/api/gift-ideas", giftIdeaRoutes);
 
-// ✅ Daily Mood Tracker (new feature)
+// Daily Mood Tracker
 const moodRoutes = require("./routes/moodRoutes");
 app.use("/api/moods", moodRoutes);
 

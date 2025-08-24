@@ -8,7 +8,7 @@ export const getNotes = async () => {
 };
 
 export const addNote = async (noteData) => {
-  const res = await axios.post(API_URL, noteData); // must include title + content
+  const res = await axios.post(API_URL, noteData);
   return res.data;
 };
 
@@ -21,3 +21,4 @@ export const deleteNote = async (id) => {
   const res = await axios.delete(`${API_URL}/${id}`);
   return res.data;
 };
+

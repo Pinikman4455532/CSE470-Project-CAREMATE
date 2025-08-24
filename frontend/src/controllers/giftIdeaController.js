@@ -34,3 +34,14 @@ export const deleteGiftIdea = async (id) => {
     throw err;
   }
 };
+
+
+export const toggleGiftDone = async (id) => {
+  try {
+    const res = await axios.put(`http://localhost:5000/api/gift-ideas/toggle/${id}`);
+    return res.data;
+  } catch (err) {
+    console.error("Toggle done failed:", err.response?.data || err.message);
+    throw err;
+  }
+};

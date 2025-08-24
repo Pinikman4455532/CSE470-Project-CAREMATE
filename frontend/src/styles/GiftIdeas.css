@@ -1,0 +1,153 @@
+/* Container layout (two column) */
+.gift-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  height: calc(100vh - 40px);
+}
+
+/* Left side form */
+.gift-form-container {
+  flex: 1;
+  background-color: rgba(219, 109, 109, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 400px;
+}
+
+.gift-form-container h2 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.gift-form input,
+.gift-form select {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #7c5e5e;
+  box-sizing: border-box;
+}
+
+.gift-form button.add-button {
+  background-color: #c00606;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gift-form button.add-button:hover {
+  background-color: #800000;
+}
+
+/* Right side saved ideas */
+.gift-display {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+
+.gift-display h3 {
+  font-size: 24px;
+  color: #800000;
+  margin-bottom: 15px;
+}
+
+.gift-display ul {
+  list-style: none;
+  padding: 0;
+}
+
+.gift-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 12px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gift-card p {
+  font-size: 15px;
+  color: #444;
+}
+
+.empty-text {
+  color: #666;
+  font-style: italic;
+}
+
+.bold-input {
+  font-weight: bold;
+}
+
+.gift-card.done {
+  background-color: #e0ffe0;
+  text-decoration: line-through;
+}
+
+/* Buttons container */
+.gift-actions button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Delete button styling */
+.delete-btn {
+  background-color: #fff;
+  color: #c00606;
+  border: 1px solid #c00606;
+}
+
+.delete-btn:hover {
+  background-color: #c00606;
+  color: #fff;
+}
+
+/* Mark as Done button styling */
+.done-btn {
+  width: 35px;
+  height: 35px;
+  background-color: #fff;
+  border: 2px solid #2ecc71;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.done-btn.done-active {
+  background-color: #2ecc71;
+  color: #fff;
+  border: 2px solid #27ae60;
+}
+
+

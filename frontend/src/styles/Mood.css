@@ -1,0 +1,110 @@
+/* Container: left form + right chart */
+.mood-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  height: calc(100vh - 40px);
+}
+
+/* Left: Mood form */
+.mood-form-container {
+  flex: 1;
+  background-color: rgba(219, 109, 109, 0.8);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(65, 16, 16, 0.2);
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mood-form-container h2 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.mood-form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.mood-form input,
+.mood-form select,
+.mood-form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #7c5e5e;
+  box-sizing: border-box;
+}
+
+.mood-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.mood-form button {
+  background-color: #be4545;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(65, 16, 16, 0.5);
+}
+
+.mood-form button:hover {
+  background-color: #6e2222;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(128, 0, 0, 0.7);
+}
+
+.mood-form .reset-btn {
+  background-color: #ff4d4f;
+  color: white;
+}
+
+/* Right: Mood chart box */
+.mood-chart-container {
+  flex: 2;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.mood-chart-container h3 {
+  font-size: 24px;
+  color: #800000;
+  margin-bottom: 15px;
+}
+
+.mood-chart-container p {
+  color: #333;
+  font-size: 15px;
+}
+
+/* Responsive stacking */
+@media (max-width: 1000px) {
+  .mood-container {
+    flex-direction: column;
+  }
+  .mood-form-container {
+    min-width: unset;
+  }
+}

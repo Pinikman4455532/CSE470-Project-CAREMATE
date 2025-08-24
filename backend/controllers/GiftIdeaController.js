@@ -1,6 +1,6 @@
 const GiftIdea = require("../models/GiftIdea");
 
-// Add a gift idea
+// Add a new gift idea
 exports.addGiftIdea = async (req, res) => {
   try {
     const { title, category, occasion, description, link } = req.body;
@@ -31,6 +31,22 @@ exports.deleteGiftIdea = async (req, res) => {
 
     await GiftIdea.findByIdAndDelete(id);
     res.status(200).json({ message: "Gift idea deleted successfully", id });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// Toggle done status
+exports.toggleGiftDone = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const gift = await GiftIdea.findById(id);
+    if (!gift) return res.status(404).json({ message: "Gift idea not found" });
+
+    gift.done = !gift.done; // toggle
+    await gift.save();
+
+    res.status(200).json({ message: "Gift idea toggled", gift });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

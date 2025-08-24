@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { addMood, getMoods } from "../controllers/moodController";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import "../styles/Mood.css";
 
 function Mood() {
   const [moods, setMoods] = useState([]);
@@ -36,7 +37,7 @@ function Mood() {
       date: new Date(),
       mood: moodInput,
       intensity,
-      note: note.toString() // ensure string
+      note: note.toString()
     };
 
     try {
@@ -63,14 +64,12 @@ function Mood() {
     }
   };
 
-  // Prepare chart data
   const chartData = moods.map(m => ({
     label: `${new Date(m.date).toLocaleDateString()} - ${m.mood}`,
     intensity: m.intensity,
     note: m.note || ""
   }));
 
-  // ✅ Define CustomTooltip outside JSX return
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
@@ -85,65 +84,70 @@ function Mood() {
   };
 
   return (
-    <div className="dashboard-container">
-      <h2>Daily Mood Tracker</h2>
+    <div className="mood-container">
+      {/* Left: Mood Form */}
+      <div className="mood-form-container">
+        <h2>Daily Mood Tracker</h2>
+        <form onSubmit={handleSubmit} className="mood-form">
+          <label>
+            Mood:
+            <select value={moodInput} onChange={e => setMoodInput(e.target.value)}>
+              <option value="happy">Happy</option>
+              <option value="sad">Sad</option>
+              <option value="stressed">Stressed</option>
+              <option value="excited">Excited</option>
+              <option value="calm">Calm</option>
+              <option value="anxious">Anxious</option>
+              <option value="loved">Loved</option>
+              <option value="ignored">Ignored</option>
+              <option value="energetic">Energetic</option>
+              <option value="neutral">Neutral</option>
+            </select>
+          </label>
 
-      <form onSubmit={handleSubmit} className="mood-form">
-        <label>
-          Mood:
-          <select value={moodInput} onChange={e => setMoodInput(e.target.value)}>
-            <option value="happy">Happy</option>
-            <option value="sad">Sad</option>
-            <option value="stressed">Stressed</option>
-            <option value="excited">Excited</option>
-            <option value="calm">Calm</option>
-            <option value="anxious">Anxious</option>
-            <option value="loved">Loved</option>
-            <option value="ignored">Ignored</option>
-            <option value="energetic">Energetic</option>
-            <option value="neutral">Neutral</option>
-          </select>
-        </label>
+          <label>
+            Intensity (1–10):
+            <input
+              type="number"
+              min="1"
+              max="10"
+              value={intensity}
+              onChange={e => setIntensity(Number(e.target.value))}
+            />
+          </label>
 
-        <label>
-          Intensity (1–10):
-          <input
-            type="number"
-            min="1"
-            max="10"
-            value={intensity}
-            onChange={e => setIntensity(Number(e.target.value))}
-          />
-        </label>
+          <label>
+            Note (optional):
+            <textarea value={note} onChange={e => setNote(e.target.value)} />
+          </label>
 
-        <label>
-          Note (optional):
-          <textarea value={note} onChange={e => setNote(e.target.value)} />
-        </label>
+          <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+            <button type="submit">Add Mood</button>
+            <button type="button" onClick={handleReset} className="reset-btn">
+              Reset All Moods
+            </button>
+          </div>
+        </form>
+      </div>
 
-        <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-          <button type="submit">Add Mood</button>
-          <button type="button" onClick={handleReset} style={{ backgroundColor: "#ff4d4f", color: "white" }}>
-            Reset All Moods
-          </button>
-        </div>
-      </form>
-
-      <h3>Mood Trend</h3>
-      {chartData.length === 0 ? (
-        <p>No moods recorded yet.</p>
-      ) : (
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="label" />
-            <YAxis domain={[0, 10]} />
-            <Tooltip content={<CustomTooltip />} />
-            <Legend />
-            <Line type="monotone" dataKey="intensity" stroke="#8884d8" activeDot={{ r: 8 }} />
-          </LineChart>
-        </ResponsiveContainer>
-      )}
+      {/* Right: Mood Chart */}
+      <div className="mood-chart-container">
+        <h3>Mood Trend</h3>
+        {chartData.length === 0 ? (
+          <p>No moods recorded yet.</p>
+        ) : (
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="label" />
+              <YAxis domain={[0, 10]} />
+              <Tooltip content={<CustomTooltip />} />
+              <Legend />
+              <Line type="monotone" dataKey="intensity" stroke="#8884d8" activeDot={{ r: 8 }} />
+            </LineChart>
+          </ResponsiveContainer>
+        )}
+      </div>
     </div>
   );
 }

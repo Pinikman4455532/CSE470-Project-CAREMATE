@@ -1,0 +1,116 @@
+/* Container holding form + saved notes */
+.notes-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  height: calc(100vh - 40px);
+}
+
+/* Left side form */
+.notes-form-container {
+  flex: 1;
+  background-color: rgba(219, 109, 109, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 400px;
+}
+
+.notes-form-container h2 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.notes-form-container input,
+.notes-form-container textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #7c5e5e;
+  box-sizing: border-box;
+}
+
+.notes-form-container button {
+  background-color: #c00606;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notes-form-container button:hover {
+  background-color: #800000;
+}
+
+/* Right side saved notes */
+.notes-display {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+
+.notes-display h3 {
+  font-size: 24px;
+  color: #800000;
+  margin-bottom: 15px;
+}
+
+.notes-display ul {
+  list-style: none;
+  padding: 0;
+}
+
+.note-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 12px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.note-card h4 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: #333;
+}
+
+.note-card p {
+  font-size: 15px;
+  color: #555;
+}
+
+.note-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.note-actions button {
+  background: transparent;
+  border: none;
+  color: #c00606;
+  cursor: pointer;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.note-actions button:hover {
+  color: #800000;
+}

@@ -4,6 +4,7 @@ const PrivateNote = require("../models/PrivateNote");
 exports.getNotes = async (req, res) => {
   try {
     const notes = await PrivateNote.find();
+    console.log("Fetched Notes:", notes); // Debug log
     res.json(notes);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -27,7 +28,7 @@ exports.updateNote = async (req, res) => {
     const updatedNote = await PrivateNote.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true } // return updated note
+      { new: true }
     );
     if (!updatedNote) {
       return res.status(404).json({ message: "Note not found" });
