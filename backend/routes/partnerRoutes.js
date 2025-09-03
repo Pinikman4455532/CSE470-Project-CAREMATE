@@ -4,7 +4,7 @@ const {
   upsertPartner,
   getPartner,
   removeItemFromPartner,
-} = require("../controllers/PartnerController");
+} = require("../controllers/partnerController");
 
 router.get("/:userEmail", getPartner);
 router.post("/upsert", upsertPartner);
