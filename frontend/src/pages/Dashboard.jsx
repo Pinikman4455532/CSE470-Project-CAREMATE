@@ -93,6 +93,17 @@ function Dashboard() {
         <Link to="/mood">
           <button>Daily Mood</button>
         </Link>
+        <Link to="/compliment-generator"
+        >
+          <button>Compliment Generator</button>
+        </Link>
+        <Link to="/love-language-quiz">
+          <button>Love Language Analyzer</button>
+        </Link>
+        <Link to="/admin-guidelines">
+          <button>Admin Guidelines</button>
+        </Link>
+
       </div>
     </div>
   );

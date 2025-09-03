@@ -59,6 +59,21 @@ app.use("/api/gift-ideas", giftIdeaRoutes);
 const moodRoutes = require("./routes/moodRoutes");
 app.use("/api/moods", moodRoutes);
 
+
+// Compliment & Message Generator
+const messageRoutes = require("./routes/messageRoutes");
+app.use("/api/messages", messageRoutes);
+
+const loveLanguageRoutes = require("./routes/loveLanguageRoutes");
+app.use("/api/love-language", loveLanguageRoutes);
+
+// Admin Guidelines
+
+const adminRoutes = require("./routes/adminRoutes");
+app.use("/api/admin-guidelines", adminRoutes); // <-- updated
+
+
+
 // ==========================================
 
 // Start server

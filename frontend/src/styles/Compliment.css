@@ -1,0 +1,89 @@
+/* ComplimentGenerator.css */
+
+/* Container for the entire component */
+.compliment-generator {
+  position: relative;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Heading style */
+.compliment-generator h1 {
+  font-size: 36px;
+  color: #be4545; /* match buttons */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Buttons container */
+.compliment-generator .buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 200px;
+}
+
+/* Individual buttons */
+.compliment-generator .buttons-container button {
+  background-color: #be4545;
+  color: white;
+  border: none;
+  flex: 1 1 auto;
+  min-width: 150px;
+  max-width: 200px;
+  aspect-ratio: 1/1;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(65, 16, 16, 0.5);
+}
+
+.compliment-generator .buttons-container button:hover {
+  background-color: #6e2222;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(128, 0, 0, 0.7);
+}
+
+/* Message display */
+.compliment-generator .message-box {
+  background-color: rgba(219, 109, 109, 0.8);
+  color: #000000;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 22px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .compliment-generator .buttons-container {
+    gap: 20px;
+  }
+
+  .compliment-generator .buttons-container button {
+    min-width: 120px;
+    max-width: 150px;
+    font-size: 14px;
+  }
+
+  .compliment-generator h1 {
+    font-size: 28px;
+  }
+
+  .compliment-generator .message-box {
+    font-size: 18px;
+    padding: 15px;
+  }
+}

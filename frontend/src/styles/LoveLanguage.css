@@ -1,0 +1,108 @@
+/* Container */
+.love-language-quiz {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: rgba(219, 109, 109, 0.8); /* semi-transparent like dashboard */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Page heading */
+.love-language-quiz h2 {
+  font-size: 32px;
+  color: #000000;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Each question block */
+.love-language-quiz .question-block {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+/* Question text */
+.love-language-quiz .question-block p {
+  font-size: 22px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+/* Options (radio buttons) */
+.love-language-quiz .question-block label {
+  display: block;
+  font-size: 20px;
+  margin: 6px 0;
+  color: #000000;
+  cursor: pointer;
+}
+
+.love-language-quiz .question-block input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #be4545; /* matches button color */
+}
+
+/* Submit button */
+.love-language-quiz button {
+  display: block;
+  margin: 25px auto 0;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #be4545;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(65, 16, 16, 0.5);
+}
+
+.love-language-quiz button:hover {
+  background-color: #6e2222;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(128, 0, 0, 0.7);
+}
+
+/* Result box */
+.love-language-quiz .result-box {
+  margin-top: 25px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.love-language-quiz .result-box p {
+  font-size: 22px;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.love-language-quiz .result-box strong {
+  color: #df1212;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .love-language-quiz {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .love-language-quiz .question-block p,
+  .love-language-quiz .question-block label,
+  .love-language-quiz .result-box p {
+    font-size: 18px;
+  }
+
+  .love-language-quiz button {
+    width: 100%;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,56 @@
+.admin-guidelines-container {
+  margin: 20px;
+  padding: 20px;
+  background-color: rgba(219, 109, 109, 0.8); /* semi-transparent like user-info */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.admin-guidelines-container h2 {
+  font-size: 28px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.guideline-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guideline-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.guideline-card h3 {
+  font-size: 22px;
+  color: #be4545; /* matches button color vibe */
+  margin-bottom: 8px;
+}
+
+.guideline-card p {
+  font-size: 16px;
+  color: #333333;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .admin-guidelines-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .guideline-card h3 {
+    font-size: 20px;
+  }
+
+  .guideline-card p {
+    font-size: 15px;
+  }
+}

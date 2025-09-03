@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 const PartnerSchema = new mongoose.Schema({
-  userEmail: { type: String, required: true, unique: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  userEmail: { type: String, required: true },
   name: String,
   favoriteFoods: [String],
   favoriteFlowers: [String],
