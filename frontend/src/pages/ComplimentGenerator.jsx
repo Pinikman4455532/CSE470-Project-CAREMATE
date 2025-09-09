@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { fetchMessageByMood } from "../controllers/complimentController";
 import "../styles/Compliment.css";
 
-const moods = ["happy", "sad", "romantic", "stressed", "angry", "flirty"];
+const moods = ["happy", "sad", "romantic", "stressed", "angry"];
 
 const ComplimentGenerator = () => {
   const [message, setMessage] = useState("");
